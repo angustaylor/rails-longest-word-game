@@ -1,0 +1,12 @@
+<h>Result</h>
+<p>
+  <% if (@word - @letters).empty? == false %>
+    <p>You have not used the correct letters</p>
+  <% elsif @answer["found"] == false %>
+    <p>Not a real word</p>
+  <% else %>
+    <p>Your score is: <%= @final = @answer["length"].to_i * 2 + 20 - @time %></p>
+    <% end %>
+</p>
+
+<%= link_to "Play again", new_path %>

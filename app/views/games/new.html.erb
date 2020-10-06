@@ -1,0 +1,16 @@
+<h1 class="m-6">Welcome to the longest word-game!<h1>
+<p>Here is your grid</p>
+
+  <% @letters.each do |letter| %>
+  <button class ="btn btn-primary btn-lg"><%= letter.capitalize %></button>
+  <% end %>
+
+<p>What is the longest word you can find?</p>
+
+<form action="/score" method="POST">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :time, Time.now - @timestart %>
+  <input type="text" name="guess" name="<%= params[:letters] %>">
+
+</form>
